@@ -1,26 +1,24 @@
-const electron = require("electron")
-
+const electron = require('electron')
 const {
     app,
     BrowserWindow,
     Menu,
     ipcMain
-}    = electron;
-
-let todayWindow;
-let createWindow;
-let listWindow;
+} = electron;
 
 app.on("ready", () => {
     todayWindow = new BrowserWindow({
         webPreferences: {
             nodeIntegration: true
         },
-        title: "Aplikasi Dokter"
+        title: 'Temperature Converter'
     });
-    todayWindow.loadURL(`file://${__dirname}/today.html`);
+
+    todayWindow.loadURL(`file://${__dirname}/suhu.html`);
     todayWindow.on("closed", () => {
+
         app.quit();
         todayWindow = null;
     });
+
 });

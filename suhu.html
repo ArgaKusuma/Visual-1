@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+<title>Temperature Converter</title>
+</head>
+
+<body align="center">
+<h1>Temperature Converter</h1>
+<br>
+
+<form id = form>
+<label for="selectf">Select Temperature</label><br>
+<select id="fconversion">
+<option value="1">Celsius</option>
+<option value="2">Reamur</option>
+<option value="3">Farenheit</option></select>
+<br><br>
+
+<label for="selectt">Convert To</label><br>
+<select id="tconversion">
+<option value="1">Celsius</option>
+<option value="2">Reamur</option>
+<option value="3">Farenheit</option></select>
+<br><br>
+
+<label for="temperature">Input Number</label><br>
+<input type="number" id="temp"><br>
+<label for="temp">Result</label><br>
+<input type="number" id="tempresult" readonly><br>
+
+<button type="submit" >Convert</button>
+</form>
+<br>
+
+<script>
+tempid = document.getElementById('form')
+tempid.addEventListener('submit',event => {
+event.preventDefault();
+var selectf = document.getElementById('fconversion');
+var selectt = document.getElementById('tconversion');
+tempf = document.getElementById('temp').value;
+        
+if(selectf.value == 1){
+if(selectt.value == 1){
+document.getElementById('tempresult').value = tempf;}
+else if(selectt.value == 2){
+ctor = (4/5) * tempf;
+document.getElementById('tempresult').value = ctor;}
+else if(selectt.value == 3){
+ctof = (9/5) *tempf + 32;
+document.getElementById('tempresult').value = ctof;}
+}else if(selectf.value == 2){
+
+if(selectt.value == 1){
+rtoc = tempf * 5/4;
+document.getElementById('tempresult').value = rtoc;}
+else if(selectt.value == 2){
+document.getElementById('tempresult').value = tempf;}
+else if(selectt.value == 3){
+rtof = tempf * 9/4 + 32;
+document.getElementById('tempresult').value = rtof;}
+}else if(selectf.value == 3){
+
+if(selectt.value == 1){
+ftoc = (tempf - 32) * 5/9;
+document.getElementById('tempresult').value = ftoc;}
+else if(selectt.value == 2){
+ftor = (tempf - 32) * 4/9;
+document.getElementById('tempresult').value = ftor;}
+else if(selectt.value == 3){
+document.getElementById('tempresult').value = tempf;}}
+});
+
+</script>
+</body>
+</html>
